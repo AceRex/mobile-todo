@@ -1,21 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+interface Todo {
+  title: string;
+  description: string;
+}
+
 const TodoSlice = createSlice({
   name: "Todo",
   initialState: {
-    list: [
-      {
-        id: 1,
-        title: "First Todo",
-        description:
-          "Some description that will be displayed. more text comes in here will be tested to know it the texts fits more text comes in here will be tested to know it the texts fits",
-      },
-    ],
+    list: [] as Todo[],
   },
   reducers: {
-    setList: (state, action) => {
-      console.log(action.payload);
-      // state.list = action.payload;
+    addTodo: (state, action) => {
+      const newTodo: Todo = action.payload;
+      state.list.push(newTodo);
     },
   },
 });

@@ -5,6 +5,7 @@ import {
   FlatList,
   RefreshControl,
 } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useState } from "react";
 import { RootState } from "@/redux/rootState";
 import { useSelector } from "react-redux";
@@ -15,6 +16,7 @@ const index = () => {
   const [refreshing, setRefreshing] = useState(false);
   const onRefresh = async () => {
     setRefreshing(true);
+
     // setRefreshing(false);
   };
   return (
@@ -22,7 +24,7 @@ const index = () => {
       <FlatList
         data={todo}
         // @ts-ignore
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => item.index}
         renderItem={({
           item,
           index,
@@ -40,10 +42,10 @@ const index = () => {
           <View className="my-6 px-4 space-y-6">
             <View className="justify-between items-center flex-row mb-6">
               <View>
-                <Text className="font-bold_font tracking-tighter text-3xl text-primary">
+                <Text className="font-ExtraBold_font tracking-tighter text-2xl text-primary">
                   Hello user,
                 </Text>
-                <Text className="font-light_font tracking-tighter mt-2 text-5xl text-primary">
+                <Text className="font-light_font tracking-tighter mt-5 text-5xl text-primary">
                   You have {todo.length} incomplete task
                 </Text>
               </View>
