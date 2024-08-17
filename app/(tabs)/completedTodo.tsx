@@ -4,7 +4,7 @@ import React from "react";
 const completedTodo = () => {
   return (
     <SafeAreaView>
-      <Text>completedTodo</Text>
+      <Text className="font-bold">completedTodo</Text>
     </SafeAreaView>
   );
 };

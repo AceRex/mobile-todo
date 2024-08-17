@@ -1,4 +1,4 @@
-import { View, Image } from "react-native";
+import { View, Image, Text } from "react-native";
 import React from "react";
 
 export const TabIcon = ({
@@ -14,16 +14,15 @@ export const TabIcon = ({
 }) => {
   return (
     <View
-      className={`items-center py-3 justify-center gap-2  ${
-        focused && "transition duration-150 ease-in-out delay-300 scale-125"
-      }`}
+      className={`items-center text-center h-20 w-20 py-3 justify-center gap-2`}
     >
       <Image
         source={icon}
         resizeMode="contain"
         tintColor={color}
-        className="w-7 h-7"
+        className="w-7 h-7 -mb-1"
       />
+      {focused && <View className="p-0.5 rounded-full bg-primary"></View>}
     </View>
   );
 };
