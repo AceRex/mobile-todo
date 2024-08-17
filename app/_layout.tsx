@@ -11,7 +11,15 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded] = useFonts({
-    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+    RalewayBlack: require("@/assets/fonts/Raleway-Black.ttf"),
+    RalewayExtraBold: require("@/assets/fonts/Raleway-ExtraBold.ttf"),
+    RalewayBold: require("@/assets/fonts/Raleway-Bold.ttf"),
+    RalewaySemiBold: require("@/assets/fonts/Raleway-SemiBold.ttf"),
+    RalewayExtraLight: require("@/assets/fonts/Raleway-ExtraLight.ttf"),
+    RalewayLight: require("@/assets/fonts/Raleway-Light.ttf"),
+    RalewayMedium: require("@/assets/fonts/Raleway-Medium.ttf"),
+    RalewayRegular: require("@/assets/fonts/Raleway-Regular.ttf"),
+    RalewayThin: require("@/assets/fonts/Raleway-Thin.ttf"),
   });
 
   useEffect(() => {

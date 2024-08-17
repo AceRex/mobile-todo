@@ -22,7 +22,7 @@ export const TabIcon = ({
         tintColor={color}
         className="w-7 h-7 -mb-1"
       />
-      {focused && <View className="p-0.5 rounded-full bg-primary"></View>}
+      {focused && <View className="p-1 rounded-full bg-primary"></View>}
     </View>
   );
 };
