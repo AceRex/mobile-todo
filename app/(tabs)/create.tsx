@@ -12,29 +12,40 @@ import icons from "@/constants/icons";
 import { Colors } from "@/constants/Colors";
 import { useDispatch } from "react-redux";
 import { TodoAction } from "@/redux/todoSlice";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { router } from "expo-router";
 
 const create = () => {
   const dispatch = useDispatch();
-  const [todo, setTodo] = useState({ title: "", description: "" });
+  const [todo, setTodo] = useState({ title: "", description: "", completed: false });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = () => {
+    setIsSubmitting(true);
+
     if (!todo.title) {
       Alert.alert("Error", "The title field is required");
+      setIsSubmitting(false);
+      return;
     }
-    setIsSubmitting(true);
+
     try {
       dispatch(
-        TodoAction.addTodo({ title: todo.title, description: todo.description })
+        TodoAction.addTodo({
+          title: todo.title,
+          description: todo.description,
+        })
       );
-      setTodo({ title: "", description: "" });
-      setIsSubmitting(false);
+      setTodo({ title: "", description: "", completed: false });
+      Alert.alert("Success", "Successfully Created", [
+        { text: "OK", onPress: () => router.navigate("/(tabs)/") },
+      ]);
     } catch (error) {
       Alert.alert("Error", "Some Error");
+    } finally {
       setIsSubmitting(false);
     }
   };
+
   return (
     <SafeAreaView>
       <View className="p-4 flex flex-col items-center place-content-center w-full">
@@ -44,7 +55,7 @@ const create = () => {
           className="w-8 h-8 mb-2"
           tintColor={Colors.neutralDarker}
         />
-        <Text className="text-3xl text-primary font-ExtraBold_font">
+        <Text className="text-2xl text-primary font-ExtraBold_font">
           Create Todo
         </Text>
       </View>
@@ -73,7 +84,7 @@ const create = () => {
           onPress={handleSubmit}
           className="bg-primary p-4 rounded-lg"
         >
-          <Text className="text-center uppercase text-neutralLighter text-base">
+          <Text className="text-center uppercase text-neutralLighter font-semibold_font text-sm">
             {isSubmitting ? "Loading..." : "Create"}
           </Text>
         </TouchableOpacity>
