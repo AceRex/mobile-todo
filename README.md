@@ -1,6 +1,10 @@
-# Welcome to your Expo app 👋
+# Hello 👋, This is a Todo Application built on React Native
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+
+It is a simple todo application built to manage todo tasks, it has the CRUD functionality.
+
+Basically, this application is built for an assessment.
 
 ## Get started
 
@@ -16,39 +20,20 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
     npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+## Dependencies and packages used in the project
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Expo router => this used for navigations.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+Redux => @reduxjs/toolkit and react-redux, this used for state management.
 
 ```bash
-npm run reset-project
+   npm i @reduxjs/toolkit react-redux
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Nativewind => Tailwind, this used for styling [`Nativewind`](https://www.nativewind.dev/overview/).
 
-## Learn more
+Asyncstorage => This is used to manage data persistence
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-
-@reduxjs/toolkit
-react-redux
-nativewind
+```bash
+   npm i @react-native-async-storage/async-storage
+```
